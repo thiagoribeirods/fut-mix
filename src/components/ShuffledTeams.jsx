@@ -30,8 +30,8 @@ const ShuffledTeams = ({ shuffledTeams, setShuffledTeams }) => {
             {shuffledTeams.length > 0 && (
                 <Grid container spacing={2} mt={3}>
                     {shuffledTeams.map((team, teamIndex) => (
-                        <Grid item xs={12} sm={12} md={12} lg="2" key={teamIndex}>
-                            <Card sx={{ borderRadius: 3 }}>
+                        <Grid item size={{ xs: 12, xl: 12, sm: 6, md: 4, lg: 3 }} key={teamIndex}>
+                            <Card sx={{ borderRadius: 3, width: "100%", minWidth: '100%' }}>
                                 <CardContent>
                                     <Typography variant="h6" fontWeight="bold" gutterBottom>
                                         Time {String.fromCharCode(65 + teamIndex)}
@@ -72,6 +72,7 @@ const ShuffledTeams = ({ shuffledTeams, setShuffledTeams }) => {
                         </Grid>
                     ))}
                 </Grid>
+
             )}
         </>
     );

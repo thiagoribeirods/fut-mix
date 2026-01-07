@@ -41,46 +41,35 @@ const App = () => {
 
   return (
     <Container
-      maxWidth="md"
+      maxWidth="lg"
       sx={{
         minHeight: "100vh",
         py: { xs: 2, sm: 4 }
       }}
     >
-      <Paper
-        elevation={3}
-        sx={{
-          width: "100%",
-          maxWidth: 900,
-          mx: "auto",
-          p: { xs: 2, sm: 3 },
-          borderRadius: 3
-        }}
-      >
+      {/* Cabeçalho */}
+      <Header title="FutMix" />
 
-        {/* Cabeçalho */}
-        <Header title="FutMix" />
+      {/* Entrada de dados */}
+      <Form
+        names={names}
+        setNames={setNames}
+        setPlayers={setPlayers}
+        playersPerTeam={playersPerTeam}
+        setPlayersPerTeam={setPlayersPerTeam}
+        setShuffledTeams={setShuffledTeams}
+      />
 
-        {/* Entrada de dados */}
-        <Form
-          names={names}
-          setNames={setNames}
-          setPlayers={setPlayers}
-          playersPerTeam={playersPerTeam}
-          setPlayersPerTeam={setPlayersPerTeam}
-          setShuffledTeams={setShuffledTeams}
-        />
+      {/* Lista de jogadores extraídos, com opção de marcar ausentes e goleiros */}
+      <PlayersList
+        players={players}
+        setPlayers={setPlayers}
+        handleDrawTeams={handleDrawTeams}
+      />
 
-        {/* Lista de jogadores extraídos, com opção de marcar ausentes e goleiros */}
-        <PlayersList
-          players={players}
-          setPlayers={setPlayers}
-          handleDrawTeams={handleDrawTeams}
-        />
+      {/* Times sorteados */}
+      <ShuffledTeams shuffledTeams={shuffledTeams} />
 
-        {/* Times sorteados */}
-        <ShuffledTeams shuffledTeams={shuffledTeams} />
-      </Paper>
     </Container>
   );
 };
