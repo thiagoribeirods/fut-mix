@@ -9,6 +9,16 @@ export const drawTeams = (players, playersPerTeam) => {
         teams.push(shuffledPlayers.slice(i, i + playersPerTeam));
     }
 
+    for(let i = 0; i < teams.length; i++) {
+
+        let randomCaptainIndex = Math.floor(Math.random() * teams[i].length);
+
+        teams[i] = teams[i].map((player, j) => ({
+            ...player,
+            isCaptain: j === randomCaptainIndex
+        }));
+    }
+
     return teams;
 
 }

@@ -9,7 +9,8 @@ const Form = ({names, setNames, setPlayers, playersPerTeam, setPlayersPerTeam, s
             namesList.map(name => ({
                 name,
                 isGoalkeeper: false,
-                isAbsent: false
+                isAbsent: false,
+                isCaptain: false
             }))
         );
         setShuffledTeams([]);
