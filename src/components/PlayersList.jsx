@@ -1,15 +1,27 @@
-import { Button, Checkbox, Divider, Grid, List, ListItem, ListItemText, Typography } from "@mui/material";
-import { useState } from "react";
+import { Button, Checkbox, Divider, Grid, List, ListItem, ListItemText, Paper, Stack, Typography } from "@mui/material";
+import GroupsIcon from "@mui/icons-material/Groups";
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+import { useEffect, useState } from "react";
 
 const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
 
     return (
-        <>
+        <Paper elevation={3} sx={{ p: 2, mt: 3, bgcolor: 'background.paper' }}>
             {players.length > 0 && (
                 <>
-                    <Typography variant="h6" mt={3} mb={1}>
-                        Jogadores
-                    </Typography>
+                    <Stack
+                        direction="row"
+                        spacing={1}
+                        justifyContent="center"
+                        alignItems="center"
+                        mt={3}
+                        mb={1}
+                    >
+                        <GroupsIcon />
+                        <Typography variant="h6">
+                            Jogadores Confirmados - {players.length}
+                        </Typography>
+                    </Stack>
 
                     <List>
                         {players.map((player, index) => (
@@ -92,16 +104,19 @@ const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
 
                     <Button
                         variant="contained"
+                        color="warning"
                         fullWidth
                         sx={{ mt: 2 }}
                         onClick={handleDrawTeams}
+                        startIcon={<SportsSoccerIcon />}
+                        size="large"  
                     >
                         Sortear Times
                     </Button>
 
                 </>
             )}
-        </>
+        </Paper>
     )
 
 };

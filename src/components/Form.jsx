@@ -1,5 +1,6 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { extractPlayers } from "../utils/ExtractPlayers";
+import ShuffleIcon from '@mui/icons-material/Shuffle';
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -18,10 +19,10 @@ const Form = ({ names, setNames, setPlayers, playersPerTeam, setPlayersPerTeam, 
                 text: "Por favor, insira a lista de jogadores antes de processar.",
                 icon: "warning",
                 confirmButtonText: "Ok"
-            }).then(() => { 
+            }).then(() => {
                 MySwal.fire({
                     title: "Dica de Ouro",
-                    html:  `A lista deverá estar no formato: <br> 1 - nome1 <br> 2- Nome2 <br> 3- Nome3 \n ...`,
+                    html: `A lista deverá estar no formato: <br> 1 - nome1 <br> 2- Nome2 <br> 3- Nome3 \n ...`,
                     icon: "info",
                     confirmButtonText: "Valeu!"
                 })
@@ -49,7 +50,7 @@ const Form = ({ names, setNames, setPlayers, playersPerTeam, setPlayersPerTeam, 
                 color="text.secondary"
                 mb={2}
             >
-                Cole a lista de GOATs abaixo
+                Cole a lista de <strong>GOATs</strong> abaixo
             </Typography>
 
             <TextField
@@ -76,6 +77,8 @@ const Form = ({ names, setNames, setPlayers, playersPerTeam, setPlayersPerTeam, 
                 fullWidth
                 sx={{ mt: 2 }}
                 onClick={handleMix}
+                startIcon={<ShuffleIcon />}
+                size="large"  
             >
                 Processar Lista
             </Button>

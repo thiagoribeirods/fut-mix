@@ -6,12 +6,12 @@ import {
     ListItem,
     ListItemText,
     Typography,
-    IconButton,
     Avatar,
     Button
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getFullTeams } from "../utils/DrawTeams";
+import SportsKabaddiOutlinedIcon from '@mui/icons-material/SportsKabaddiOutlined';
 
 const ShuffledTeams = ({ shuffledTeams, setShuffledTeams, hasTeamsDrawn, playersPerTeam }) => {
 
@@ -58,9 +58,11 @@ const ShuffledTeams = ({ shuffledTeams, setShuffledTeams, hasTeamsDrawn, players
             <Button
                 variant="contained"
                 fullWidth
+                size="large"  
                 sx={{ mt: 2 }}
                 onClick={handleFirstMatch}
                 disabled={!hasTeamsDrawn}
+                startIcon={<SportsKabaddiOutlinedIcon />}
             >
                 Sortear Primeira Partida
             </Button>

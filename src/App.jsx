@@ -1,7 +1,6 @@
 // MUI
 import {
-  Container,
-  Paper
+  Container
 } from "@mui/material";
 
 // React
@@ -19,6 +18,8 @@ import Form from "./components/Form";
 import Header from "./components/Header";
 import PlayersList from "./components/PlayersList";
 import ShuffledTeams from "./components/ShuffledTeams";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 /***
  * Componente principal da aplicação FutMix
@@ -26,6 +27,8 @@ import ShuffledTeams from "./components/ShuffledTeams";
  * @returns {JSX.Element} Componente App
  */
 const App = () => {
+
+  const MySwal = withReactContent(Swal)
 
   const [names, setNames] = useState("");
   const [players, setPlayers] = useState([]);
@@ -35,6 +38,17 @@ const App = () => {
   const handleDrawTeams = () => {
     const nonGoalkeepers = extractNonGoalkeepers(players);
     const availablePlayers = extractNonAbsentPlayers(nonGoalkeepers);
+
+    if (availablePlayers.length < (playersPerTeam * 2) || players.length < (playersPerTeam * 2 + 2)) {
+      MySwal.fire({
+        title: "Atenção craque!",
+        text: "Número insuficiente de jogadores disponíveis para formar um time.",
+        icon: "warning",
+        confirmButtonText: "Ok"
+      })
+      return;
+    }
+
     const result = drawTeams(availablePlayers, playersPerTeam);
     setShuffledTeams(result);
   };
@@ -69,7 +83,7 @@ const App = () => {
 
       {/* Times sorteados */}
       <ShuffledTeams shuffledTeams={shuffledTeams}
-        hasTeamsDrawn={shuffledTeams.length > 0} playersPerTeam={playersPerTeam}/>
+        hasTeamsDrawn={shuffledTeams.length > 0} playersPerTeam={playersPerTeam} />
 
     </Container>
   );
