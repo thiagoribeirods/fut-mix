@@ -1,16 +1,72 @@
-# React + Vite
+# FutMix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FutMix é uma aplicação web simples e responsiva para organizar, filtrar e sortear times de futebol de forma rápida e justa, diretamente no navegador, sem uso de banco de dados.
 
-Currently, two official plugins are available:
+Ideal para peladas, futsal, society ou qualquer jogo entre amigos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Importação de lista de jogadores via texto
+- Marcação de goleiros
+- Marcação de jogadores ausentes
+- Sorteio automático de times
+- Definição dinâmica de capitão por time
+- Layout mobile first e responsivo
+- Alertas e feedbacks visuais com SweetAlert2
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologias Utilizadas
+
+- React JS
+- Vite JS
+- Material UI (MUI)
+- SweetAlert2
+- JavaScript (ES6+)
+
+---
+
+## Instalação e Execução
+
+### 1. Clone o repositório
+```bash
+git clone git@github.com:thiagoribeirods/fut-mix.git
+``` 
+
+### 2. Acesse a pasta do projeto:
+```bash
+cd fut-mix
+```
+
+### 3. Instale as dependências:
+```bash
+npm install
+```
+
+### 4. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+
+### 5. A aplicação ficará disponível em:
+```bash
+http://localhost:5173
+```
+
+## Estrutura básica do projeto
+```txt
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── Form.jsx
+│   ├── PlayersList.jsx
+│   └── ShuffledTeams.jsx
+│
+├── utils/
+│   ├── ExtractPlayers.js
+│   └── DrawTeams.js
+│
+├── App.jsx
+``` 
