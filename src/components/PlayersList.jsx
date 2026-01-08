@@ -20,9 +20,13 @@ const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
                                         <Grid
                                             container
                                             spacing={1}
-                                            direction={{ xs: "column", sm: "row" }}
-                                            alignItems={{ xs: "flex-end", sm: "center" }}
-                                            width="auto"
+                                            wrap="nowrap"
+                                            alignItems="center"
+                                            justifyContent="flex-end"
+                                            sx={{
+                                                width: "auto",
+                                                flexDirection: "row"
+                                            }}
                                         >
                                             <Grid item>
                                                 <Typography variant="caption">Ausente</Typography>
@@ -50,10 +54,7 @@ const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
                                                         setPlayers(prev =>
                                                             prev.map((p, i) =>
                                                                 i === index
-                                                                    ? {
-                                                                        ...p,
-                                                                        isGoalkeeper: !p.isGoalkeeper
-                                                                    }
+                                                                    ? { ...p, isGoalkeeper: !p.isGoalkeeper }
                                                                     : p
                                                             )
                                                         )
@@ -64,6 +65,7 @@ const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
                                     }
                                 >
                                     <ListItemText
+                                        alignItems="flex-start"
                                         primary={player.name}
                                         secondary={
                                             player.isAbsent
@@ -76,7 +78,10 @@ const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
                                             opacity: player.isAbsent ? 0.5 : 1,
                                             textDecoration: player.isAbsent
                                                 ? "line-through"
-                                                : "none"
+                                                : "none",
+                                            "& .MuiListItemSecondaryAction-root": {
+                                                right: 8
+                                            }
                                         }}
                                     />
                                 </ListItem>
