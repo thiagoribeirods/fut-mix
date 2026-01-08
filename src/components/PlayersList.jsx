@@ -1,4 +1,5 @@
 import { Button, Checkbox, Divider, Grid, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { useState } from "react";
 
 const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
 
@@ -92,6 +93,7 @@ const PlayersList = ({ players, setPlayers, handleDrawTeams }) => {
                     >
                         Sortear Times
                     </Button>
+
                 </>
             )}
         </>

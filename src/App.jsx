@@ -68,7 +68,8 @@ const App = () => {
       />
 
       {/* Times sorteados */}
-      <ShuffledTeams shuffledTeams={shuffledTeams} />
+      <ShuffledTeams shuffledTeams={shuffledTeams}
+        hasTeamsDrawn={shuffledTeams.length > 0} playersPerTeam={playersPerTeam}/>
 
     </Container>
   );

@@ -1,9 +1,34 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { extractPlayers } from "../utils/ExtractPlayers";
 
-const Form = ({names, setNames, setPlayers, playersPerTeam, setPlayersPerTeam, setShuffledTeams}) => {
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
+const Form = ({ names, setNames, setPlayers, playersPerTeam, setPlayersPerTeam, setShuffledTeams }) => {
+
+    const MySwal = withReactContent(Swal)
+
 
     const handleMix = () => {
+
+        if (names.trim() === "") {
+            MySwal.fire({
+                title: "Atenção craque!",
+                text: "Por favor, insira a lista de jogadores antes de processar.",
+                icon: "warning",
+                confirmButtonText: "Ok"
+            }).then(() => { 
+                MySwal.fire({
+                    title: "Dica de Ouro",
+                    html:  `A lista deverá estar no formato: <br> 1 - nome1 <br> 2- Nome2 <br> 3- Nome3 \n ...`,
+                    icon: "info",
+                    confirmButtonText: "Valeu!"
+                })
+            });
+            return;
+        }
+
         const namesList = extractPlayers(names);
         setPlayers(
             namesList.map(name => ({

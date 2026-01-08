@@ -22,3 +22,7 @@ export const drawTeams = (players, playersPerTeam) => {
     return teams;
 
 }
+
+export const getFullTeams = (teams, playersPerTeam) => {
+    return teams.filter(team => team.length === playersPerTeam);
+}
